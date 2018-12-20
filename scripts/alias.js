@@ -8,6 +8,7 @@ module.exports = {
   core: resolve('src/core'),
   shared: resolve('src/shared'),
   web: resolve('src/platforms/web'),
+  wechat: resolve('src/platforms/wechat'),
   weex: resolve('src/platforms/weex'),
   server: resolve('src/server'),
   entries: resolve('src/entries'),

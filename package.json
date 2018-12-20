@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "rollup -w -c scripts/config.js --environment TARGET:web-full-dev",
     "dev:cjs": "rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs",
+    "dev:wechat": "rollup -w -c scripts/config.js --environment TARGET:wechat-runtime-dev",
     "dev:esm": "rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm",
     "dev:test": "karma start test/unit/karma.dev.config.js",
     "dev:ssr": "rollup -w -c scripts/config.js --environment TARGET:web-server-renderer",
@@ -24,6 +25,7 @@
     "dev:weex:factory": "rollup -w -c scripts/config.js --environment TARGET:weex-factory",
     "dev:weex:compiler": "rollup -w -c scripts/config.js --environment TARGET:weex-compiler ",
     "build": "node scripts/build.js",
+    "build:wechat": "npm run build -- wechat-runtime-cjs",
     "build:ssr": "npm run build -- web-runtime-cjs,web-server-renderer",
     "build:weex": "npm run build -- weex",
     "test": "npm run lint && flow check && npm run test:types && npm run test:cover && npm run test:e2e -- --env phantomjs && npm run test:ssr && npm run test:weex",

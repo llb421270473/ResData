@@ -10,8 +10,7 @@ const weexVersion = process.env.WEEX_VERSION || require('../packages/weex-vue-fr
 
 const banner =
   '/*!\n' +
-  ` * Vue.js v${version}\n` +
-  ` * (c) 2014-${new Date().getFullYear()} Evan You\n` +
+  ` * ResData base on Vue.js v${version}\n` +
   ' * Released under the MIT License.\n' +
   ' */'
 
@@ -35,6 +34,21 @@ const resolve = p => {
 }
 
 const builds = {
+  // Runtime only (ES CommonJS)
+  'wechat-runtime-dev': {
+    entry: resolve('wechat/entry-runtime.js'),
+    dest: resolve('dist/res-data.runtime.common.js'),
+    format: 'cjs',
+    env: 'development',
+    banner
+  },
+  'wechat-runtime-cjs': {
+    entry: resolve('wechat/entry-runtime.js'),
+    dest: resolve('dist/res-data.runtime.common.js'),
+    format: 'cjs',
+    env: 'production',
+    banner
+  },
   // Runtime only (CommonJS). Used by bundlers e.g. Webpack & Browserify
   'web-runtime-cjs': {
     entry: resolve('web/entry-runtime.js'),
