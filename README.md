@@ -10,6 +10,13 @@ Response data for WeChat mini program base on Vue(v2.5.21).
 
 * custom platform patch function named $WeChatPatch.
 
+## install
+
+```bash
+npm install
+npm run build:wechat
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
