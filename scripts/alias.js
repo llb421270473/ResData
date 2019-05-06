@@ -11,6 +11,5 @@ module.exports = {
   wechat: resolve('src/platforms/wechat'),
   weex: resolve('src/platforms/weex'),
   server: resolve('src/server'),
-  entries: resolve('src/entries'),
   sfc: resolve('src/sfc')
 }
