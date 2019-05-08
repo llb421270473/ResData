@@ -21,7 +21,7 @@ import {
 export let activeInstance: any = null
 export let isUpdatingChildComponent: boolean = false
 
-export function setActiveInstance(vm: Component) {
+export function setActiveInstance (vm: Component) {
   const prevActiveInstance = activeInstance
   activeInstance = vm
   return () => {
@@ -122,7 +122,10 @@ export function lifecycleMixin (Vue: Class<Component>) {
     // call the last hook...
     vm._isDestroyed = true
     // invoke destroy hooks on current rendered tree
-    vm.__patch__(vm._vnode, null)
+    // when work for ResData model not have render
+    if (vm.__patch__) {
+      vm.__patch__(vm._vnode, null)
+    }
     // fire destroyed hook
     callHook(vm, 'destroyed')
     // turn off all instance listeners.
