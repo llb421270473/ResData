@@ -11,7 +11,8 @@ const featureFlags = require('./feature-flags')
 
 const banner =
   '/*!\n' +
-  ` * ResData base on Vue.js v${version}\n` +
+  ` * VueData base on Vue.js v${version}\n` +
+  ` * (c) ${new Date().getFullYear()} CalvinLee \n` +
   ' * Released under the MIT License.\n' +
   ' */'
 
@@ -36,6 +37,13 @@ const resolve = p => {
 
 const builds = {
   // Runtime only (ES CommonJS)
+  'vuedata-runtime-dev': {
+    entry: resolve('vue-data/entry-runtime.js'),
+    dest: resolve('dist/vuedata.runtime.common.js'),
+    format: 'cjs',
+    env: 'development',
+    banner
+  },
   'wechat-runtime-dev': {
     entry: resolve('wechat/entry-runtime.js'),
     dest: resolve('dist/res-data.runtime.common.js'),
@@ -46,6 +54,13 @@ const builds = {
   'wechat-runtime-cjs': {
     entry: resolve('wechat/entry-runtime.js'),
     dest: resolve('dist/res-data.runtime.common.js'),
+    format: 'cjs',
+    env: 'production',
+    banner
+  },
+  'vuedata-runtime-cjs': {
+    entry: resolve('vue-data/entry-runtime.js'),
+    dest: resolve('dist/vuedata.runtime.common.min.js'),
     format: 'cjs',
     env: 'production',
     banner
@@ -71,7 +86,7 @@ const builds = {
     dest: resolve('dist/vue.common.dev.js'),
     format: 'cjs',
     env: 'development',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   'web-full-cjs-prod': {
@@ -79,7 +94,7 @@ const builds = {
     dest: resolve('dist/vue.common.prod.js'),
     format: 'cjs',
     env: 'production',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   // Runtime only ES modules build (for bundlers)
@@ -94,7 +109,7 @@ const builds = {
     entry: resolve('web/entry-runtime-with-compiler.js'),
     dest: resolve('dist/vue.esm.js'),
     format: 'es',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   // Runtime+compiler ES modules build (for direct import in browser)
@@ -104,7 +119,7 @@ const builds = {
     format: 'es',
     transpile: false,
     env: 'development',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   // Runtime+compiler ES modules build (for direct import in browser)
@@ -114,7 +129,7 @@ const builds = {
     format: 'es',
     transpile: false,
     env: 'production',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   // runtime-only build (Browser)
@@ -139,7 +154,7 @@ const builds = {
     dest: resolve('dist/vue.js'),
     format: 'umd',
     env: 'development',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   // Runtime+compiler production build  (Browser)
@@ -148,7 +163,7 @@ const builds = {
     dest: resolve('dist/vue.min.js'),
     format: 'umd',
     env: 'production',
-    alias: { he: './entity-decoder' },
+    alias: {he: './entity-decoder'},
     banner
   },
   // Web compiler (CommonJS).

@@ -9,6 +9,7 @@ module.exports = {
   shared: resolve('src/shared'),
   web: resolve('src/platforms/web'),
   wechat: resolve('src/platforms/wechat'),
+  'vue-data': resolve('src/platforms/vue-data'),
   weex: resolve('src/platforms/weex'),
   server: resolve('src/server'),
   sfc: resolve('src/sfc')
