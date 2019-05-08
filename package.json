@@ -15,6 +15,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "rollup -w -c scripts/config.js --environment TARGET:web-full-dev",
+    "dev:vuedata": "rollup -w -c scripts/config.js --environment TARGET:vuedata-runtime-dev",
     "dev:wechat": "rollup -w -c scripts/config.js --environment TARGET:wechat-runtime-dev",
     "dev:cjs": "rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs-dev",
     "dev:esm": "rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm",
@@ -25,6 +26,7 @@
     "dev:weex:factory": "rollup -w -c scripts/config.js --environment TARGET:weex-factory",
     "dev:weex:compiler": "rollup -w -c scripts/config.js --environment TARGET:weex-compiler ",
     "build": "node scripts/build.js",
+    "build:vuedata": "npm run build -- vuedata-runtime-cjs",
     "build:wechat": "npm run build -- wechat-runtime-cjs",
     "build:ssr": "npm run build -- web-runtime-cjs,web-server-renderer",
     "build:weex": "npm run build -- weex",
